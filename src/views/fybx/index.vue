@@ -1,46 +1,28 @@
 <template>
   <div>
-    <bread-crumb></bread-crumb>
     <div class="container">
-      <el-card class="box-card">
-        <div v-for="o in 3" :key="o" class="text item">
-          <div class="box-title">
-            <h4>部门费用寿险</h4>
-          </div>
-          <div class="bx-content">
-            <div class="bx-items">
-              <img src="@/assets/fybx/fysq.svg" alt="" />
-              <a href="/sqinfo">部门费用申请单寿险</a>
-            </div>
-            <div class="bx-items">
-              <img src="@/assets/fybx/fybx.svg" alt="" />
-              <a href="">部门费用报销单寿险</a>
-            </div>
-            <div class="bx-items">
-              <img src="@/assets/fybx/fyjk.svg" alt="" />
-              <a href="">部门费用借款单寿险</a>
-            </div>
-            <div class="bx-items">
-              <img src="@/assets/fybx/fyhk.svg" alt="" />
-              <a href="">部门费用还款单寿险</a>
-            </div>
-          </div>
-        </div>
-      </el-card>
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import BreadCrumb from "@/components/content/BreadCrumb";
 export default {
   name: "name",
-  components: {
-    BreadCrumb,
+  data() {
+    return {
+      ass: "/sqinfo",
+    };
   },
   mounted() {
     console.log(this.$route);
   },
+  computed: {
+    aList() {
+      return this.$route.path + this.ass;
+    },
+  },
+  components: {},
 };
 </script>
 
@@ -61,8 +43,12 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-right: 30px;
-        a {
+        padding: 0 30px 0 15px;
+        color: #2e6a9e;
+        &:hover {
+          color: #0286fa;
+        }
+        span {
           margin-top: 10px;
           font-size: 12px;
         }

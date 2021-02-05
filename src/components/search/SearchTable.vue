@@ -25,6 +25,7 @@
           :key="heads.prop"
           :prop="heads.prop"
           :label="heads.label"
+          :width="heads.width"
           :align="isAlign"
           sortable
         >
@@ -36,6 +37,7 @@
           :key="heads.prop"
           :prop="heads.prop"
           :label="heads.label"
+          :width="heads.width"
           :align="isAlign"
         >
         </el-table-column>
@@ -92,7 +94,7 @@ export default {
       type: Array,
       default() {
         return [
-          { label: "日期", prop: "date" },
+          { label: "日期", prop: "date", width: "100" },
           { label: "姓名", prop: "lalla" },
         ];
       },

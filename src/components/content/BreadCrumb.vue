@@ -1,6 +1,9 @@
 <template>
-  <el-breadcrumb separator="/">
-    <el-breadcrumb-item :to="{ path: '/manage' }">首页</el-breadcrumb-item>
+  <el-breadcrumb
+    separator="/"
+    v-if="$route.meta instanceof Array && $route.meta.length > 0"
+  >
+    <!-- <el-breadcrumb-item :to="{ path: '/manage' }">首页</el-breadcrumb-item> -->
     <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{
       item
     }}</el-breadcrumb-item>

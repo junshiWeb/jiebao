@@ -23,36 +23,36 @@
             <template slot="title"
               ><i class="el-icon-document"></i>电子交接</template
             >
-            <el-menu-item index="userList">纸质单据交接</el-menu-item>
-            <el-menu-item index="shopList">纸质单据退回</el-menu-item>
-            <el-menu-item index="shopList">单据交接报表</el-menu-item>
+            <el-menu-item index="paperconnect">纸质单据交接</el-menu-item>
+            <el-menu-item index="paperexit">纸质单据退回</el-menu-item>
+            <el-menu-item index="paperstatement">单据交接报表</el-menu-item>
           </el-submenu>
           <el-submenu index="3">
             <template slot="title"
               ><i class="el-icon-plus"></i>预算管理</template
             >
-            <el-menu-item index="addShop">预算报表</el-menu-item>
-            <el-menu-item index="addGoods">预算明细</el-menu-item>
-            <el-menu-item index="addGoods">预算录入</el-menu-item>
-            <el-menu-item index="addGoods">控制策略</el-menu-item>
-            <el-menu-item index="addGoods">预算查询报表</el-menu-item>
+            <el-menu-item index="budgetreport">预算报表</el-menu-item>
+            <el-menu-item index="bugetdetail">预算明细</el-menu-item>
+            <el-menu-item index="bugetentey">预算录入</el-menu-item>
+            <el-menu-item index="control">控制策略</el-menu-item>
+            <el-menu-item index="budgetreportsearch">预算查询报表</el-menu-item>
           </el-submenu>
           <el-submenu index="4">
             <template slot="title"
               ><i class="el-icon-star-on"></i>信息中心</template
             >
-            <el-menu-item index="visitor">通知中心</el-menu-item>
-            <el-menu-item index="visitor">通知记录</el-menu-item>
+            <el-menu-item index="notifycenter">通知中心</el-menu-item>
+            <el-menu-item index="notifyrecord">通知记录</el-menu-item>
           </el-submenu>
-          <el-menu-item index="fybx">
+          <el-menu-item index="fybxinfo">
             <i class="el-icon-menu"></i>
             <span slot="title">费用报销</span>
           </el-menu-item>
-          <el-menu-item index="6">
+          <el-menu-item index="Gtasks">
             <i class="el-icon-menu"></i>
             <span slot="title">待办任务</span>
           </el-menu-item>
-          <el-menu-item index="7">
+          <el-menu-item index="Mytasks">
             <i class="el-icon-menu"></i>
             <span slot="title">我的单据</span>
           </el-menu-item>
@@ -78,7 +78,7 @@
             <el-menu-item index="explain">预算释放</el-menu-item>
             <el-menu-item index="explain">任务委托</el-menu-item>
           </el-submenu>
-          <el-menu-item index="10">
+          <el-menu-item index="Ytasks">
             <i class="el-icon-menu"></i>
             <span slot="title">已办任务</span>
           </el-menu-item>
@@ -94,6 +94,8 @@
       >
         <head-top></head-top>
         <div style="margin: 15px 15px 0">
+          <bread-crumb></bread-crumb>
+
           <keep-alive>
             <router-view></router-view>
           </keep-alive>
@@ -105,6 +107,7 @@
 
 <script>
 import HeadTop from "@/components/content/HeadTop";
+import BreadCrumb from "@/components/content/BreadCrumb";
 export default {
   computed: {
     defaultActive: function () {
@@ -119,6 +122,7 @@ export default {
   },
   components: {
     HeadTop,
+    BreadCrumb,
   },
   methods: {
     handleOpen(key, keyPath) {
