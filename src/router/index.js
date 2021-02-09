@@ -4,8 +4,10 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 let Test = () => import('../views/Test')
-// 首页路由
+// 登陆
 let Login = () => import('../views/login/Login')
+let ForgetPass = () => import('../views/login/ForgetPass')
+// 首页路由
 let Manage = () => import('../views/home/Manage')
 let Home = () => import('../views/home/Home')
 // 电子交接
@@ -27,6 +29,12 @@ let Gtasks = () => import('../views/gtasks/index')
 let Mytasks = () => import('../views/mytasks/index')
 // 已办任务
 let Ytasks = () => import('../views/ytasks/index')
+// 分析报表
+let Statement = () => import('../views/statement/index')
+// 更多
+let More = () => import('../views/more/index')
+// 付款失败
+let PayFailure = () => import('../views/payfailure/index')
 // let Error401 = () => import('../views/error/401')
 let Error404 = () => import('../views/error/404')
 
@@ -36,6 +44,11 @@ const routes = [
     path: '/',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/forgetpass',
+    name: 'ForgetPass',
+    component: ForgetPass
   },
   {
     path: '/manage',
@@ -121,6 +134,71 @@ const routes = [
       name: 'ytasks',
       component: Ytasks,
       meta: ['已办任务']
+    }, {
+      path: '/shsxbb',
+      name: 'Statement',
+      component: Statement,
+      meta: ['分析报表', '审核时效报表']
+    }, {
+      path: '/fybxqksmsjb',
+      name: 'Statement',
+      component: Statement,
+      meta: ['分析报表', '费用报销情况说明数据表']
+    }, {
+      path: '/fysqfsgx',
+      name: 'Statement',
+      component: Statement,
+      meta: ['分析报表', '费用申请发生关系']
+    }, {
+      path: '/fycxb',
+      name: 'Statement',
+      component: Statement,
+      meta: ['分析报表', '费用查询表']
+    }, {
+      path: '/sqdgzb',
+      name: 'Statement',
+      component: Statement,
+      meta: ['分析报表', '申请单跟踪表']
+    }, {
+      path: '/xtdj',
+      name: 'Statement',
+      component: Statement,
+      meta: ['分析报表', '系统单据']
+    }, {
+      path: '/wsjcb',
+      name: 'Statement',
+      component: Statement,
+      meta: ['分析报表', '网上检查表']
+    }, {
+      path: '/drzfpqd',
+      name: 'More',
+      component: More,
+      meta: ['更多', '待认证发票清单']
+    }, {
+      path: '/ddydj',
+      name: 'More',
+      component: More,
+      meta: ['更多', '待打印单据']
+    }, {
+      path: '/ydydjlb',
+      name: 'More',
+      component: More,
+      meta: ['更多', '已打印单据列表']
+    }, {
+      path: '/yssf',
+      name: 'More',
+      component: More,
+      meta: ['更多', '预算释放']
+    }, {
+      path: '/rwwt',
+      name: 'More',
+      component: More,
+      meta: ['更多', '任务委托']
+    }, {
+      path: '/payfailure',
+      name: 'PayFailure',
+      component: PayFailure,
+      meta: ['付款失败']
     }]
   },
   // {

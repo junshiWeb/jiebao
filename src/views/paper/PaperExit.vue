@@ -1,6 +1,5 @@
 <template>
   <div>
-    <bread-crumb></bread-crumb>
     <search-form
       style="background: #fff"
       size="mini"
@@ -17,7 +16,6 @@
 </template>
 
 <script>
-import BreadCrumb from "@/components/content/BreadCrumb";
 import SearchForm from "@/components/search/SearchForm";
 import SearchTable from "@/components/search/SearchTable";
 
@@ -105,7 +103,6 @@ export default {
     };
   },
   components: {
-    BreadCrumb,
     SearchForm,
     SearchTable,
   },

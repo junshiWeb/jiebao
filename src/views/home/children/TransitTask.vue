@@ -12,6 +12,7 @@
         :key="index"
         :prop="heads.data"
         :label="heads.name"
+        :width="heads.width"
         sortable
       >
       </el-table-column>
@@ -27,20 +28,29 @@ export default {
   data() {
     return {
       tableHead: [
-        { name: "申请单编号", data: "id" },
+        { name: "单据编号", data: "id", width: "200" },
         { name: "单据名称", data: "name" },
         { name: "创建人", data: "creator" },
-        { name: "审批状态", data: "status" },
-        { name: "前审批人", data: "beforeApprover" },
-        { name: "金额(元)", data: "price" },
+        { name: "当前审批人", data: "approver" },
+        { name: "单据状态", data: "status" },
+        { name: "合计金额(元)", data: "price" },
         { name: "创建时间", data: "createTime" },
-        { name: "所属部门", data: "department" },
-        { name: "P07状态", data: "p07Status" },
-        { name: "备注", data: "remark" },
       ],
       tableData: [
         {
-          id: "JB31111111",
+          id: "JB3101001D10000003",
+          name: "费用申请单",
+          creator: "赵浩宇",
+          status: "审批",
+          approver: "方磊",
+          price: "1999",
+          createTime: "2021-1-29",
+          department: "四川分公司",
+          p07Status: "p07状态",
+          remark: "备注",
+        },
+        {
+          id: "W60000006",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -52,7 +62,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
+          id: "W60000004",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -64,19 +74,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
-          name: "费用申请单",
-          creator: "赵浩宇",
-          status: "审批",
-          beforeApprover: "方磊",
-          price: "1999",
-          createTime: "2021-1-29",
-          department: "四川分公司",
-          p07Status: "p07状态",
-          remark: "备注",
-        },
-        {
-          id: "JB31111111",
+          id: "W60000005",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",

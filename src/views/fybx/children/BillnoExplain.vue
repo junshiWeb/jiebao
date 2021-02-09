@@ -1,7 +1,7 @@
 <template>
   <el-card>
     <div slot="header" class="fybx-header">
-      <span>费用说明</span>
+      <span>{{ headerTitle }}</span>
     </div>
     <el-input
       type="textarea"
@@ -17,6 +17,12 @@
 <script>
 export default {
   name: "name",
+  props: {
+    headerTitle: {
+      type: String,
+      default: "费用说明",
+    },
+  },
   data() {
     return {
       textarea: "",

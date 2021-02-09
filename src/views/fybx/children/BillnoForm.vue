@@ -1,6 +1,6 @@
 <template>
-  <div class="form-cart">
-    <el-form-item>
+  <div class="form-cart" :class="{ 'form-active': isFlex }">
+    <el-form-item class="first-icon">
       <i class="el-icon-plus"></i>
     </el-form-item>
     <el-form-item
@@ -10,6 +10,7 @@
       :label="item.label"
       :rules="item.rules"
       class="form-cart-item"
+      :class="{ active: isFlex }"
     >
       <el-input
         :type="item.prop"
@@ -32,7 +33,7 @@
         </el-option>
       </el-select>
     </el-form-item>
-    <el-form-item>
+    <el-form-item class="delete-icon">
       <el-button type="danger" icon="el-icon-delete" circle></el-button>
     </el-form-item>
   </div>
@@ -46,6 +47,9 @@ export default {
       inputs: "",
     };
   },
+  mounted() {
+    // console.log(this.isFlex);
+  },
   props: {
     firstIcon: {
       type: Boolean,
@@ -54,6 +58,10 @@ export default {
     lastIcon: {
       type: Boolean,
       defalut: false,
+    },
+    isFlex: {
+      type: Boolean,
+      default: false,
     },
     formLabel: {
       type: Array,
@@ -89,14 +97,33 @@ export default {
 };
 </script>
 
-<style scoped lang='less'>
+<style lang='less'>
 .form-cart {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
   padding: 10px;
+  .el-form-item__content {
+    width: 175px;
+  }
+  .first-icon {
+    width: 10px;
+    color: red;
+    font-weight: 700;
+  }
+  .delete-icon {
+    width: 20px;
+    .el-form-item__content {
+      width: 50px;
+    }
+  }
   .form-cart-item {
     flex-shrink: 0;
+    font-weight: 600;
   }
+}
+.form-active {
+  overflow: hidden;
+  justify-content: space-between;
 }
 </style>

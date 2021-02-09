@@ -69,7 +69,7 @@
                 text-align: center;
               "
             >
-              <el-button>退出登录</el-button>
+              <el-button @click="userOut">退出登录</el-button>
             </div>
           </div>
         </el-dropdown-menu>
@@ -86,12 +86,47 @@ export default {
       newDate: new Date().toLocaleDateString(),
     };
   },
+  methods: {
+    userOut() {
+      // const h = this.$createElement;
+      this.$msgbox({
+        title: "消息",
+        message: "是否退出登录",
+        customClass: "message-box-top",
+        showCancelButton: true,
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        beforeClose: (action, instance, done) => {
+          if (action === "confirm") {
+            // instance.confirmButtonLoading = true;
+            // instance.confirmButtonText = "退出中...";
+            setTimeout(() => {
+              this.$router.push("/");
+              done();
+            }, 500);
+          } else {
+            done();
+          }
+        },
+      }).then(() => {
+        this.$message({
+          type: "info",
+          message: "成功退出登录",
+        });
+      });
+    },
+  },
 };
 </script>
 
 <style lang='less'>
 @import "@/style/mixin";
 .header_container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 87.5%;
+  z-index: 100;
   height: 60px;
   line-height: 60px;
   background: #ffffff;
@@ -108,6 +143,9 @@ export default {
     color: #999999;
     span {
       padding: 0 15px;
+    }
+    .user-dropdown {
+      width: 350px;
     }
   }
 }

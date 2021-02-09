@@ -1,12 +1,27 @@
 <template>
   <el-form inline size="small">
-    <billno-header title="费用申请单" :headerData="headerData"></billno-header>
+    <billno-header title="费用还款单"></billno-header>
+    <div class="jkcx-card">
+      <el-checkbox v-model="jkcxChange" size="medium"
+        ><span class="text">借款冲销</span
+        ><span class="primary"
+          >(有借款冲销的请优先选择借款冲销！)</span
+        ></el-checkbox
+      >
+      <billno-card
+        v-if="jkcxChange"
+        headerTitle="借款信息"
+        :isFlex="ifFlex"
+        :formLabel="formLabelJkxx"
+      ></billno-card>
+    </div>
+
     <billno-card
-      headerTitle="费用明细区"
+      headerTitle="还款明细"
       :isFlex="ifFlex"
-      :formLabel="formLabelFymxq"
+      :formLabel="formLabelHkmx"
     ></billno-card>
-    <billno-explain headerTitle="申请说明"></billno-explain>
+    <billno-explain headerTitle="还款说明"></billno-explain>
     <billno-accessory></billno-accessory>
 
     <billno-htfj></billno-htfj>
@@ -26,26 +41,17 @@ import BillnoAccessory from "./BillnoAccessory";
 import BillnoHtfj from "./BillnoHtfj";
 import BillnoEvent from "./BillnoEvent";
 export default {
-  name: "name",
+  name: "HkInfo",
   data() {
     return {
+      jkcxChange: true,
       ifFlex: true,
-      headerData: {
-        userNameStr: "方雷",
-        userName: "fanflei-07",
-        userDeptStr: "寿-四川分公司本部",
-        userDeptCode: "LB51010101",
-        deptStr: "四川财务会计部",
-        deptCode: "LB51010101002",
-        billnoPrice: "1.533",
-        budgetType: "预算方式:(部门)",
-        mainBillno: "W11111",
-      },
-      formLabelFymxq: [
+      formLabelJkxx: [
         {
           type: "Select",
-          prop: "bm",
-          value: "四川财务会计部",
+          prop: "jkdh",
+          value: "借款单号",
+          relus: [{ required: true, message: "借款单号不能为空" }],
           options: [
             {
               label: "1",
@@ -58,11 +64,52 @@ export default {
           ],
         },
         {
+          type: "Input",
+          prop: "jkje",
+          label: "借款金额",
+          rules: [{ required: true, message: "借款金额不能为空" }],
+        },
+        {
+          type: "Input",
+          prop: "whje",
+          label: "未还金额",
+          rules: [{ required: true, message: "未还金额不能为空" }],
+        },
+        {
+          type: "Input",
+          prop: "bchkje",
+          label: "本次还款金额",
+          rules: [{ required: true, message: "本次还款金额不能为空" }],
+        },
+      ],
+      formLabelHkmx: [
+        {
           type: "Select",
-          prop: "fylx",
+          prop: "bm",
+          value: "费用类型",
+          relus: [{ required: true, message: "费用类型不能为空" }],
+          options: [
+            {
+              label: "1",
+              value: "1",
+            },
+            {
+              label: "2",
+              value: "2",
+            },
+          ],
+        },
+        {
+          type: "Input",
+          prop: "hksm",
+          label: "还款说明",
+          rules: [{ required: true, message: "还款说明不能为空" }],
+        },
+        {
+          type: "Select",
+          prop: "hkfs",
+          value: "还款方式",
           rules: [{ required: true, message: "不能为空" }],
-          value:
-            "日常办公用-差旅费用-不分明细-不分明细-不分明细-不分明细-不分明细",
           options: [
             {
               label:
@@ -78,14 +125,9 @@ export default {
         },
         {
           type: "Input",
-          prop: "bz",
-          label: "备注",
+          prop: "hkje",
+          label: "还款金额",
           rules: [{ required: true, message: "不能为空" }],
-        },
-        {
-          type: "Input",
-          prop: "sqje",
-          label: "申请金额",
         },
       ],
     };

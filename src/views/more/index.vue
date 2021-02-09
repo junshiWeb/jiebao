@@ -20,7 +20,7 @@ import SearchForm from "@/components/search/SearchForm";
 import SearchTable from "@/components/search/SearchTable";
 
 export default {
-  name: "PaperStatement",
+  name: "statement",
   data() {
     return {
       searchData: {
@@ -55,15 +55,15 @@ export default {
         },
         {
           type: "DatePicker",
-          label: "时间",
+          label: "交接时间",
           prop: "thsj",
         },
       ],
       searchHandle: [
         {
-          label: "导出",
-          handle: () => {
-            console.log("导出");
+          label: "激活扫码枪",
+          handel: () => {
+            console.log("---");
           },
         },
         {
@@ -87,7 +87,7 @@ export default {
         { label: "部门", prop: "bm" },
         { label: "单据创建人", prop: "cjr" },
         { label: "单据金额", prop: "je" },
-        { label: "时间", prop: "sj" },
+        { label: "交接时间", prop: "sj" },
       ],
       tableData: [
         {

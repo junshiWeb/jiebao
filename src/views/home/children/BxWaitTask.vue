@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       tableHead: [
-        { name: "申请单编号", data: "id" },
+        { name: "报销单编号", data: "id" },
         { name: "单据名称", data: "name" },
         { name: "创建人", data: "creator" },
         { name: "审批状态", data: "status" },
@@ -40,7 +40,7 @@ export default {
       ],
       tableData: [
         {
-          id: "JB31111111",
+          id: "W60000001",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -52,7 +52,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
+          id: "W60000002",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -64,7 +64,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
+          id: "W60000003",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -76,7 +76,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
+          id: "W60000004",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -88,7 +88,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
+          id: "W60000006",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",

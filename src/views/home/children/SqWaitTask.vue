@@ -12,6 +12,7 @@
         :key="index"
         :prop="heads.data"
         :label="heads.name"
+        :width="heads.width"
         sortable
       >
       </el-table-column>
@@ -27,7 +28,7 @@ export default {
   data() {
     return {
       tableHead: [
-        { name: "申请单编号", data: "id" },
+        { name: "申请单编号", data: "id", width: "200" },
         { name: "单据名称", data: "name" },
         { name: "创建人", data: "creator" },
         { name: "审批状态", data: "status" },
@@ -40,7 +41,7 @@ export default {
       ],
       tableData: [
         {
-          id: "JB31111111",
+          id: "JB3101001D10000001",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -52,7 +53,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
+          id: "JB3101001D10000002",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -64,7 +65,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
+          id: "JB3101001D10000003",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -76,7 +77,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
+          id: "JB3101001D10000001",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",
@@ -88,7 +89,7 @@ export default {
           remark: "备注",
         },
         {
-          id: "JB31111111",
+          id: "JB3101001D10000001",
           name: "费用申请单",
           creator: "赵浩宇",
           status: "审批",

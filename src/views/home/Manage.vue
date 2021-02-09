@@ -60,29 +60,31 @@
             <template slot="title"
               ><i class="el-icon-setting"></i>分析报表</template
             >
-            <el-menu-item index="adminSet">审核时效报表</el-menu-item>
-            <el-menu-item index="adminSet">费用报销情况说明数据表</el-menu-item>
-            <el-menu-item index="adminSet">费用申请发生关系</el-menu-item>
-            <el-menu-item index="adminSet">费用查询表</el-menu-item>
-            <el-menu-item index="adminSet">申请单跟踪表</el-menu-item>
-            <el-menu-item index="adminSet">系统单据</el-menu-item>
-            <el-menu-item index="adminSet">网上检查表</el-menu-item>
+            <el-menu-item index="shsxbb">审核时效报表</el-menu-item>
+            <el-menu-item index="fybxqksmsjb"
+              >费用报销情况说明数据表</el-menu-item
+            >
+            <el-menu-item index="fysqfsgx">费用申请发生关系</el-menu-item>
+            <el-menu-item index="fycxb">费用查询表</el-menu-item>
+            <el-menu-item index="sqdgzb">申请单跟踪表</el-menu-item>
+            <el-menu-item index="xtdj">系统单据</el-menu-item>
+            <!-- <el-menu-item index="wsjcb">网上检查表</el-menu-item> -->
           </el-submenu>
           <el-submenu index="9">
             <template slot="title"
               ><i class="el-icon-warning"></i>更多</template
             >
-            <el-menu-item index="explain">待认证发票清单</el-menu-item>
-            <el-menu-item index="explain">待打印单据</el-menu-item>
-            <el-menu-item index="explain">已打印单据列表</el-menu-item>
-            <el-menu-item index="explain">预算释放</el-menu-item>
-            <el-menu-item index="explain">任务委托</el-menu-item>
+            <el-menu-item index="drzfpqd">待认证发票清单</el-menu-item>
+            <el-menu-item index="ddydj">待打印单据</el-menu-item>
+            <el-menu-item index="ydydjlb">已打印单据列表</el-menu-item>
+            <el-menu-item index="yssf">预算释放</el-menu-item>
+            <el-menu-item index="rwwt">任务委托</el-menu-item>
           </el-submenu>
           <el-menu-item index="Ytasks">
             <i class="el-icon-menu"></i>
             <span slot="title">已办任务</span>
           </el-menu-item>
-          <el-menu-item index="11">
+          <el-menu-item index="payfailure">
             <i class="el-icon-menu"></i>
             <span slot="title">付款失败</span>
           </el-menu-item>
@@ -95,7 +97,6 @@
         <head-top></head-top>
         <div style="margin: 15px 15px 0">
           <bread-crumb></bread-crumb>
-
           <keep-alive>
             <router-view></router-view>
           </keep-alive>

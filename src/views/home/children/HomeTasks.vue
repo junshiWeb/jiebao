@@ -12,9 +12,9 @@
   </el-tabs>
 </template>
 <script>
-import SqWaitTask from "./children/SqWaitTask";
-import BxWaitTask from "./children/BxWaitTask";
-import TransitTask from "./children/TransitTask";
+import SqWaitTask from "./SqWaitTask";
+import BxWaitTask from "./BxWaitTask";
+import TransitTask from "./TransitTask";
 export default {
   data() {
     return {
@@ -35,7 +35,4 @@ export default {
 </script>
 
 <style scoped lang='less'>
-.tasks-tabs {
-  margin: 0 25px;
-}
 </style>

@@ -13,7 +13,7 @@
         >
       </span>
     </div>
-    <billno-form :formLabel="formLabel"></billno-form>
+    <billno-form :formLabel="formLabel" :isFlex="isFlex"></billno-form>
   </el-card>
 </template>
 
@@ -25,6 +25,10 @@ export default {
     headerTitle: {
       type: String,
       default: "预算明细",
+    },
+    isFlex: {
+      type: Boolean,
+      default: false,
     },
     headerButton: {
       type: Array,

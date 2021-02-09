@@ -2,6 +2,12 @@
   padding: 0;
   margin: 0;
 }
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
 /*包含以下五种的链接*/
 a {
   text-decoration: none;
@@ -26,6 +32,52 @@ a:active {
 a:focus {
   text-decoration: none;
 }
+a {
+  text-decoration: none;
+}
+
+.el-card {
+  margin: 15px 0;
+  .fybx-header {
+    color: #328be5;
+    font-size: 18px;
+    &::before {
+      content: "1";
+      position: relative;
+      left: -25px;
+      right: 0;
+      background: #328be5;
+    }
+    .primary {
+      color: #ff0000;
+    }
+  }
+}
 .el-form {
   border-radius: 5px;
+}
+// 借款冲销样式
+.jkcx-card {
+  margin: 15px 0;
+  .text {
+    color: #000;
+  }
+  .primary {
+    color: #ff0000;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+// element ui 全局修改
+.el-form-item__label {
+  color: #333;
+  font-size: 12px;
+
+}
+.el-card__header {
+  border-bottom: 1px solid #ddd;
+}
+.message-box-top {
+  vertical-align: 20%;
 }
