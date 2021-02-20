@@ -22,6 +22,8 @@ export default {
   padding: 0 15px;
   height: 30px;
   margin-bottom: 30px;
+  // margin-top: 20px;
+  overflow: hidden;
   background: #f5f5f5;
   border-radius: 5px;
 }

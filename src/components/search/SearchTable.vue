@@ -6,6 +6,8 @@
       :height="isHeight"
       :default-sort="{ prop: 'date', order: 'descending' }"
       :header-row-class-name="active"
+      @cell-dblclick="cellDblclick"
+      size="mini"
     >
       <!-- 全选显示 -->
       <el-table-column v-if="isSelection === true" type="selection" width="55">
@@ -45,11 +47,11 @@
     </el-table>
 
     <el-pagination
-      :current-page="paginObj.currentPage"
-      :page-sizes="paginObj.pageSizes"
-      :layout="paginObj.layout"
-      :total="paginObj.total"
-      :pager-count="paginObj.pagerCount"
+      :current-page="currentPage"
+      :page-sizes="pageSizes"
+      :layout="layout"
+      :total="total"
+      :pager-count="pagerCount"
       @size-change="sizeChange"
       @current-change="currentChange"
       @prev-click="prevClick"
@@ -63,12 +65,11 @@
 export default {
   name: "SearchTable",
   mounted() {
-    console.log(this.tableHead);
+    // console.log(this.tableHead);
   },
   props: {
     isHeight: {
       type: String,
-      default: "auto",
     },
     isAlign: {
       type: String,
@@ -111,46 +112,31 @@ export default {
       },
     },
     // 分页数据
-    paginObj: {
-      type: Object,
+    // 组件布局
+    layout: {
+      type: String,
+      default: "jumper, prev, pager, next,total,sizes",
+    },
+    // 数据总数
+    total: {
+      type: Number,
+      default: 100,
+    },
+    // 页码按钮数量
+    pagerCount: {
+      type: Number,
+      default: 5,
+    },
+    // 当前页数
+    currentPage: {
+      type: Number,
+      default: 1,
+    },
+    // 每页显示个数选择器
+    pageSizes: {
+      type: Array,
       default() {
-        return {
-          // 组件布局
-          layout: "jumper, prev, pager, next,total,sizes",
-          // 数据总数
-          total: 100,
-          // 页码按钮数量
-          pagerCount: 5,
-          // 当前页数
-          currentPage: 1,
-          // 每页显示个数选择器
-          pageSizes: [10, 15, 20, 50, 100],
-        };
-      },
-    },
-    // 分页事件
-    sizeChange: {
-      type: Function,
-      default: (val) => {
-        console.log("页面显示数量", val);
-      },
-    },
-    currentChange: {
-      type: Function,
-      default: (val) => {
-        console.log("页面跳转", val);
-      },
-    },
-    prevClick: {
-      type: Function,
-      default: (val) => {
-        console.log("上一页", val);
-      },
-    },
-    nextClick: {
-      type: Function,
-      default: (val) => {
-        console.log("下一页", val);
+        return [10, 15, 20, 50, 100];
       },
     },
   },
@@ -159,10 +145,31 @@ export default {
       return 1;
     },
   },
-  data() {
-    return {};
-  },
+
   methods: {
+    // 双击列表
+    cellDblclick(row) {
+      // this.cellDbclick();
+      this.$emit("cellDblclickReq", row);
+    },
+    // 页面显示数量
+    sizeChange(val) {
+      console.log("页面显示数量", val);
+      this.$emit("sizeChangeReq", val);
+    },
+    currentChange(val) {
+      console.log("页面跳转", val);
+      this.$emit("currentChangeReq", val);
+    },
+    prevClick(val) {
+      console.log("上一页", val);
+      this.$emit("prevClickReq", val);
+    },
+    nextClick(val) {
+      console.log("下一页", val);
+      this.$emit("nextClickReq", val);
+    },
+
     formatter(row) {
       console.log("row");
       return row.address;

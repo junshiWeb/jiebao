@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import { getLoginOut } from "@/api/login";
 export default {
   name: "name",
   data() {
@@ -100,6 +101,7 @@ export default {
           if (action === "confirm") {
             // instance.confirmButtonLoading = true;
             // instance.confirmButtonText = "退出中...";
+            getLoginOut();
             setTimeout(() => {
               this.$router.push("/");
               done();

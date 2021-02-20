@@ -24,11 +24,11 @@ let NotifyRecord = () => import('../views/info/NotifyRecord')
 let FybxInfo = () => import('../views/fybx/FybxInfo')
 let SqInfo = () => import('../views/fybx/children/SqInfo')
 // 待办任务
-let Gtasks = () => import('../views/gtasks/index')
+let Gtasks = () => import('../views/gtasks/Gtasks')
 // 我的单据
-let Mytasks = () => import('../views/mytasks/index')
+let Mytasks = () => import('../views/mytasks/Mytasks')
 // 已办任务
-let Ytasks = () => import('../views/ytasks/index')
+let Ytasks = () => import('../views/ytasks/Ytasks')
 // 分析报表
 let Statement = () => import('../views/statement/index')
 // 更多
@@ -201,12 +201,6 @@ const routes = [
       meta: ['付款失败']
     }]
   },
-  // {
-  //   path: '/fybx',
-  //   name: 'fybx',
-  //   component: Fybx,
-  //   meta: ['费用报销']
-  // },
   {
     path: '/test',
     name: 'test',

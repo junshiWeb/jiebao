@@ -95,7 +95,7 @@
         style="height: 100%; overflow: auto; background: #e9e9eb"
       >
         <head-top></head-top>
-        <div style="margin: 15px 15px 0">
+        <div style="margin: 60px 15px 0; padding-top: 15px">
           <bread-crumb></bread-crumb>
           <keep-alive>
             <router-view></router-view>

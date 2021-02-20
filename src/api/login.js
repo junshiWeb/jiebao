@@ -1,17 +1,31 @@
 import api from './index'
 
-export function getLoginUser(user, pass) {
+export function getLoginUser(username, password) {
   return api({
-    url: 'user',
+    url: 'login/user',
+    params: {
+      username,
+      password
+    }
+  })
+}
+export function postLoginUser(username, password) {
+  return api({
+    url: 'login/user',
     method: 'post',
     data: {
-      user,
-      pass
+      username,
+      password
     }
+  })
+}
+export function getLoginUserInfo() {
+  return api({
+    url: 'login/userinfo',
   })
 }
 export function getLoginOut() {
   return api({
-    url: 'userout'
+    url: 'login/userout'
   })
 }

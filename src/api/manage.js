@@ -1,9 +1,13 @@
 import api from './index'
 
-export function getManageUser(user) {
+export function getManageUser() {
   return api({
     url: 'manage',
-    method: 'post',
+  })
+}
+export function getManageUserInfo(user) {
+  return api({
+    url: 'manage',
     data: {
       user,
     }

@@ -18,14 +18,14 @@
       >
         <!-- 输入框 -->
         <el-input
-          type="item.prop"
+          :type="item.prop"
           v-if="item.type === 'Input'"
           v-model="searchData[item.prop]"
           :placeholder="item.placeholder"
         ></el-input>
         <!-- 输入框数字 -->
         <el-input
-          type="item.prop"
+          :type="item.prop"
           v-if="item.type === 'InputNumber'"
           v-model.number="searchData[item.prop]"
           :placeholder="item.placeholder"
@@ -49,18 +49,18 @@
           <el-row type="flex" justify="space-between" style="width: 250px">
             <el-col :span="10">
               <el-input
-                type="item.prop"
+                :type="item.prop"
                 :placeholder="item.startPlaceholder"
-                v-model="searchData.price1"
+                v-model="searchData[item.prop1]"
                 style="width: 110px"
               ></el-input>
             </el-col>
             <el-col :span="2" class="line">至</el-col>
             <el-col :span="10">
               <el-input
-                type="item.prop"
+                :type="item.prop"
                 :placeholder="item.endPlaceholder"
-                v-model="searchData.price2"
+                v-model="searchData[item.prop2]"
                 style="width: 110px"
               ></el-input>
             </el-col>
@@ -119,10 +119,16 @@
             size="mini"
             :type="item.type"
             :icon="item.icon"
-            @click="item.handle()"
+            @click="item.handle(searchData)"
             >{{ item.label }}</el-button
           >
         </span>
+        <el-button size="mini" type="primary" @click="selectClick(searchData)"
+          >查询</el-button
+        >
+        <el-button size="mini" type="primary" @click="resetClick(searchData)"
+          >重置</el-button
+        >
       </el-row>
     </el-form>
   </div>
@@ -152,17 +158,12 @@ export default {
       default() {
         return [
           {
-            label: "查询",
-            type: "primary",
-            icon: "primary",
-            handle: () => {
-              console.log("查询");
-            },
-          },
-          {
-            label: "重置",
-            handle: () => {
-              console.log("重置");
+            label: "全部导出",
+            type: "",
+            icon: "el-icon-lock",
+            handle: (searchData) => {
+              this.$emit("selectFromExportReq", searchData);
+              console.log("全部导出", searchData);
             },
           },
         ];
@@ -185,17 +186,22 @@ export default {
     searchData: {
       type: Object,
       default: () => {
-        return { name: "" };
+        return {};
       },
     },
   },
-  data() {
-    return {};
+  methods: {
+    // 查询
+    selectClick(searchData) {
+      this.$emit("selectFromReq", searchData);
+    },
+    // 重置
+    resetClick() {
+      this.$refs.searchData.model.price1 = "";
+      this.$refs.searchData.model.price2 = "";
+      this.$refs.searchData.resetFields();
+    },
   },
-  created() {
-    // this.handel1();
-  },
-  methods: {},
 };
 </script>
 

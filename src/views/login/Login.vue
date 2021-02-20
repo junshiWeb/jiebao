@@ -60,9 +60,6 @@
 import { getLoginUser } from "@/api/login";
 export default {
   name: "Login",
-  mounted() {
-    getLoginUser();
-  },
   data() {
     return {
       userForm: {
@@ -73,7 +70,7 @@ export default {
   },
   methods: {
     submitForm(userForm) {
-      console.log("提交", userForm);
+      console.log(userForm);
       if (userForm.username.length === 0 || userForm.userpass.length === 0) {
         this.$message({
           message: "账号或密码为空，请输入",
@@ -82,7 +79,8 @@ export default {
         return true;
       }
       getLoginUser(userForm.username, userForm.userpass).then((res) => {
-        if (res.data === "登陆成功") {
+        console.log(res);
+        if (res.data.state === "200") {
           this.$message({
             message: "登陆成功",
             type: "success",
@@ -97,7 +95,8 @@ export default {
       });
     },
     keyEnter(userForm) {
-      this.submitForm(userForm);
+      console.log("键盘事件", userForm);
+      // this.submitForm(userForm);
     },
   },
 };
